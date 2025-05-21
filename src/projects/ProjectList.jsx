@@ -12,10 +12,14 @@ function ProjectList({ projects }) {
     //console.log(project);
    };
 
+   const cancelEditing = () =>{
+    setProjectBeingEdited(null) // like handledEdit but with null due cancelling
+   }
+
 
   const items = projects.map(project => (
      <div key={project.id} className="cols-sm">
-       {project === projectBeingEdited ? (<ProjectForm/>): (<ProjectCard project={project} onEdit={handleEdit}/>)}
+       {project === projectBeingEdited ? (<ProjectForm onCancel={cancelEditing}/>): (<ProjectCard project={project} onEdit={handleEdit}/>)}
       </div>
     ));
     return <div className="row">{items}</div>;

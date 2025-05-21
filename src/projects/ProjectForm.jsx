@@ -1,4 +1,6 @@
-function ProjectForm() {
+import PropTypes from 'prop-types';
+
+function ProjectForm({onCancel }) {
   return (
     <form className="input-group vertical">
       <label htmlFor="name">Project Name</label>
@@ -12,12 +14,15 @@ function ProjectForm() {
       <div className="input-group">
         <button className="primary bordered medium">Save</button>
         <span />
-        <button type="button" className="bordered medium">
-          cancel
+        <button type="button" className="bordered medium"  onClick={onCancel}>
+        cancel
         </button>
       </div>
     </form>
   );
 }
 
+ProjectForm.propTypes = {
+  onCancel: PropTypes.func.isRequired
+}
 export default ProjectForm;
